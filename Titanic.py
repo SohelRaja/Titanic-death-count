@@ -1,7 +1,1 @@
-import pandas as pd
-
-
-
-
-df=pd.read_csv("train.csv")
-print(df.head(2))
+#Write your code here
