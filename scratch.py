@@ -3,7 +3,7 @@ import seaborn as sns
 from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score
-df=pd.read_csv("D:\\PROJECTS\\Python\\DrAIvex project 2(Titanic-Death-count)\\train.csv")
+df=pd.read_csv("train.csv")
 
 mean=df['Age'].mean()
 
@@ -20,9 +20,9 @@ df.drop(['PassengerId','Sex','Age','Pclass','Name','Ticket','Cabin','SibSp','Par
 
 
 x=df.drop('Survived',axis=1)
-y=pd.read_csv("D:\\PROJECTS\\Python\\DrAIvex project 2(Titanic-Death-count)\\test_y.csv")
+y=df['Survived']
 
-x_train,x_test,y_train,y_test=train_test_split(x, y, test_size=0.2, random_state=0)
+x_train,x_test,y_train,y_test=train_test_split(x, y, test_size=0.2, random_state=6)
 reg=LogisticRegression()
 reg.fit(x_train,y_train)
 pred=reg.predict(x_test)
